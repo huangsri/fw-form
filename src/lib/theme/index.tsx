@@ -18,7 +18,9 @@ const overrideTheme = extendTheme({
   },
   styles: {
     global: {
-      body: {},
+      body: {
+        bgGradient: 'linear(270deg, brand.50, white)',
+      },
     },
   },
 })
