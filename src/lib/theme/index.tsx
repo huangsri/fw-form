@@ -21,6 +21,9 @@ const overrideTheme = extendTheme({
       body: {
         bgGradient: 'linear(270deg, brand.50, white)',
       },
+      button: {
+        fontFamily: 'Kanit, sans-serif',
+      },
     },
   },
 })

@@ -6,3 +6,5 @@ export const Container = chakra('div', {
     maxW: '1152px',
   },
 })
+
+export const Strong = chakra('strong')

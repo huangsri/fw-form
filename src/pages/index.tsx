@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Fragment } from 'react'
 
 import { PageBottom, Navbar } from '@/features/layout/components'
+import { FormContainer } from '@/features/assistant-form/containers'
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,8 @@ const Home: NextPage = () => {
       </Head>
 
       <Navbar />
+
+      <FormContainer />
 
       <PageBottom />
     </Fragment>
