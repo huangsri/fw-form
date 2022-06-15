@@ -16,6 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { FormControl } from '@/components/form'
 import { FileUpload } from './FileUpload'
 import { Select } from '@/components/Select'
+import { FakePlaceholder } from './FakePlaceholder'
 
 import { AssistantFormInput } from '../types'
 import { assistantFormSchema } from '../schema'
@@ -53,6 +54,8 @@ export const AssistantForm = (props: AssistantFormProps) => {
 
   const countryCode = watch('country_code')
   const fileName = watch('reference_upload_file_name')
+
+  const dueDate = watch('due_date')
 
   const [countryCodeOptions, countryOptions] = useCountryOptions()
 
@@ -130,11 +133,9 @@ export const AssistantForm = (props: AssistantFormProps) => {
               </FormControl>
 
               <FormControl errorMsg={errors.due_date?.message}>
-                <Input
-                  type="date"
-                  placeholder="วันที่ต้องการรับงาน"
-                  {...register('due_date')}
-                />
+                <FakePlaceholder label="วันที่ต้องการรับงาน" show={!dueDate}>
+                  <Input type="date" {...register('due_date')} />
+                </FakePlaceholder>
               </FormControl>
             </Grid>
           </Stack>
@@ -167,6 +168,7 @@ export const AssistantForm = (props: AssistantFormProps) => {
                       formatOptionLabel={(option, { context }) => {
                         return context === 'menu' ? option.label : option.value
                       }}
+                      id="country-code"
                     />
                   )
                 }}
@@ -193,6 +195,7 @@ export const AssistantForm = (props: AssistantFormProps) => {
                       options={countryOptions}
                       value={selectValue}
                       onChange={(option) => onChange(option?.value)}
+                      id="country"
                     />
                   )
                 }}
